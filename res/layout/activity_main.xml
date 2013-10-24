@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/maintitle"
+        android:textSize="20sp"
+        android:textColor="@color/contents_text"
+        android:background="@color/upanddown"
+        />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableTop="@drawable/zchcsel"
+                android:gravity="center"
+                android:onClick="hechaClick"
+                android:text="@string/zchc"
+                android:textSize="@dimen/font_size" 
+                android:textColor="@color/contents_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableTop="@drawable/zcrksel"
+                android:gravity="center"
+                android:onClick="zcrkClick"
+                android:text="@string/zcrk"
+                android:textSize="@dimen/font_size" 
+                android:textColor="@color/contents_text"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp" >
+
+            <TextView
+                android:id="@+id/zjbgtv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableTop="@drawable/zjbfsel"
+                android:gravity="center"
+                android:onClick="zjbfClick"
+                android:text="@string/zjbf"
+                android:textSize="@dimen/font_size"
+                android:textColor="@color/contents_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableTop="@drawable/zcglsel"
+                android:gravity="center"
+                android:onClick="zcglClick"
+                android:text="@string/zcgl"
+                android:textSize="@dimen/font_size" 
+                android:textColor="@color/contents_text"/>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

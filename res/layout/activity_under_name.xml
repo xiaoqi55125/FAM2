@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context=".CheckAsset" >
+
+    <TextView
+        android:id="@+id/textViewUnderName"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/upanddown"
+        android:gravity="center"
+        android:text="@string/title_activity_under_name"
+        android:textColor="@color/contents_text"
+        android:textSize="20sp" />
+    	<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:orientation="vertical">
+
+    		<ListView
+    		    android:id="@+id/listViewUnderName"
+    		    android:layout_width="match_parent"
+    		    android:layout_height="fill_parent"
+    		    android:layout_weight="1" >
+    		</ListView>
+	       
+    	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@color/upanddown"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone" >
+         <TextView
+            android:id="@+id/textViewPhone2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" 
+            android:textColor="@color/contents_text"
+            android:drawableLeft="@drawable/baofeisel"
+            android:gravity="center"
+            android:layout_marginRight="5dip"
+            android:text="@string/baofeit"
+            android:clickable="true"/>
+          <TextView
+            android:id="@+id/textViewOther2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" 
+            android:textColor="@color/contents_text"
+            android:drawableLeft="@drawable/editsel"
+            android:gravity="center"
+            android:layout_marginLeft="5dip"
+            android:text="@string/editit"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</LinearLayout>

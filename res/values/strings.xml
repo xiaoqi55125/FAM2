@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="homeurl">http://172.16.206.16:8088</string>
+    <string name="app_name">资产管理</string>
+    <string name="action_settings">退出</string>
+    <string name="zchc">资产核查</string>
+    <string name="zcrk">资产入库</string>
+    <string name="zjbf">折旧报废</string>
+    <string name="zcgl">资产管理</string>
+    <string name="maintitle">金智教育固定资产管理系统</string>
+    <string name="checktitle">资产详情</string>
+    <string name="title_activity_check_asset">资产核查</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="callhim">拨打电话</string>
+    <string name="searchhim">查询名下</string>
+    <string name="baofeit">报废设备</string>
+    <string name="editit">修改设备</string>
+    <string name="eqdetails">设备详细</string>
+    <string name="title_activity_asset_details">设备详细</string>
+    <string name="title_activity_under_name">用户名下</string>
+
+</resources>
