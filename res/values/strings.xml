@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="homeurl">http://172.16.206.16:8088</string>
+    <string name="homeurl">http://192.172.1.32:8088</string>
     <string name="app_name">资产管理</string>
+    <string name="cd">Content Description</string>
     <string name="action_settings">退出</string>
     <string name="zchc">资产核查</string>
     <string name="zcrk">资产入库</string>
@@ -19,5 +20,15 @@
     <string name="eqdetails">设备详细</string>
     <string name="title_activity_asset_details">设备详细</string>
     <string name="title_activity_under_name">用户名下</string>
-
+    <string name="title_activity_add">选择添加设备类型</string>
+    <string name="title_activity_add_host_computer">添加主机</string>
+    <string name="lenovo_p">联想</string>
+    <string name="dell_p">戴尔</string>
+    <string name="asus_p">华硕</string>
+    <string name="other_p">组装</string>
+    <string name="make_sure_insert">确认入库</string>
+	<string name="cancel_insert">取消入库</string>
+	<string name="addtouser">派发设备</string>
+	<string name="canceladdshare">取消设备与人员关系</string>
+	
 </resources>

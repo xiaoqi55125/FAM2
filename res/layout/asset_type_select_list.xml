@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="30dip"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="5dip" 
     android:layout_gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/asset_info"
+    <ImageView
+        android:id="@+id/imageView_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dip"
-        android:text="姓名:"
+        android:layout_marginLeft="20dip"
+        android:src="@drawable/moniter_1" />
+
+    <TextView
+        android:id="@+id/asset_type_info"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:text="显示器"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/asset_about_id"
+        android:id="@+id/asset_type_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="id"

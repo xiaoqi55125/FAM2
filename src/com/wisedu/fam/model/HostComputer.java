@@ -1,7 +1,11 @@
 package com.wisedu.fam.model;
 
 import java.math.BigDecimal;
-
+/**
+ * 主机实体类
+ * @author zhicheng
+ *
+ */
 public class HostComputer {
     
 	private String remark;

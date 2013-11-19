@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context=".AddActivity" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@color/upanddown"
+        android:gravity="center"
+        android:text="@string/title_activity_add"
+        android:textColor="@color/contents_text"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/listView_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_weight="1">
+    </ListView>
+
+</LinearLayout>

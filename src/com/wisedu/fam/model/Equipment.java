@@ -1,5 +1,4 @@
 package com.wisedu.fam.model;
-import java.util.Date;
 /**
  * Equipment entity
  * @author zhicheng
@@ -7,19 +6,19 @@ import java.util.Date;
  */
 public class Equipment
 {
-    private java.util.Date rejectDate;
+    private String rejectDate;
     private int reject;
-    private Date possessDate;
-    private Date purchaseDate;
+    private String possessDate;
+    private String purchaseDate;
     private String lastUserId;
     private String equipmentSqlName;
     private String equipmentName;
     private String equipmentId;
     
-	public java.util.Date getRejectDate() {
+	public String getRejectDate() {
 		return rejectDate;
 	}
-	public void setRejectDate(java.util.Date rejectDate) {
+	public void setRejectDate(String rejectDate) {
 		this.rejectDate = rejectDate;
 	}
 	public int getReject() {
@@ -28,16 +27,16 @@ public class Equipment
 	public void setReject(int reject) {
 		this.reject = reject;
 	}
-	public Date getPossessDate() {
+	public String getPossessDate() {
 		return possessDate;
 	}
-	public void setPossessDate(Date possessDate) {
+	public void setPossessDate(String possessDate) {
 		this.possessDate = possessDate;
 	}
-	public Date getPurchaseDate() {
+	public String getPurchaseDate() {
 		return purchaseDate;
 	}
-	public void setPurchaseDate(Date purchaseDate) {
+	public void setPurchaseDate(String purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 	public String getLastUserId() {
@@ -64,8 +63,8 @@ public class Equipment
 	public void setEquipmentId(String equipmentId) {
 		this.equipmentId = equipmentId;
 	}
-	public Equipment(Date rejectDate, int reject, Date possessDate,
-			Date purchaseDate, String lastUserId, String equipmentSqlName,
+	public Equipment(String rejectDate, int reject, String possessDate,
+			String purchaseDate, String lastUserId, String equipmentSqlName,
 			String equipmentName, String equipmentId) {
 		super();
 		this.rejectDate = rejectDate;
@@ -80,6 +79,8 @@ public class Equipment
 	public Equipment() {
 		super();
 	}
+	
+	
     
 	
     

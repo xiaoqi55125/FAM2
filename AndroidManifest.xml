@@ -51,6 +51,14 @@
             android:name="com.wisedu.fam.check.UnderName"
             android:label="@string/title_activity_under_name" >
         </activity>
+        <activity
+            android:name="com.wisedu.fam.add.AddActivity"
+            android:label="@string/title_activity_add" >
+        </activity>
+        <activity
+            android:name="com.wisedu.fam.add.hostcomputer.AddHostComputer"
+            android:label="@string/title_activity_add_host_computer" >
+        </activity>
     </application>
 
 </manifest>

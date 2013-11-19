@@ -11,6 +11,9 @@ import com.wisedu.fam.R.menu;
 import com.wisedu.fam.help.EquipHelper;
 import com.wisedu.fam.help.HttpUtil;
 import com.wisedu.fam.help.MyToast;
+import com.wisedu.fam.model.AssetType;
+import com.wisedu.fam.model.Assets;
+import com.wisedu.fam.model.Department;
 import com.wisedu.fam.model.Equipment;
 import com.wisedu.fam.model.User;
 
@@ -23,7 +26,11 @@ import android.content.Intent;
 import android.text.Html;
 import android.view.Menu;
 import android.widget.TextView;
-
+/**
+ * 设备详情
+ * @author zhicheng
+ *
+ */
 public class AssetDetails extends Activity {
 	MyToast myToast = new MyToast();
 	private String equipId = null;
@@ -35,7 +42,7 @@ public class AssetDetails extends Activity {
 		Intent assetId = getIntent();
 		equipId = assetId.getStringExtra("equipId");
 		checkCodeUrl = this.getString(R.string.homeurl)
-				+ "/fixedasset/"+equipId+"/detail/";
+				+ "/fixedasset/"+equipId+"/info/";
 		new Thread(runnable).start();
 	}
 	Handler handler = new Handler(){
@@ -53,14 +60,22 @@ public class AssetDetails extends Activity {
 				int statusCodeString =  Integer.parseInt(jsonObject.get("statusCode").toString()) ;
 				if (statusCodeString == 0) {
 					JsonObject dataObject = (JsonObject)jsonObject.get("data");
-					JsonObject equipObject = (JsonObject)dataObject.get("faInfo");
-					JsonObject equipDetailObject = (JsonObject)dataObject.get("faDetail");
-					Equipment equipment = gson.fromJson(equipObject, Equipment.class);
-					String detailString=EquipHelper.checkType(equipment.getEquipmentSqlName(),equipDetailObject);
-					TextView textView1 = (TextView)findViewById(R.id.textViewDetails);
+					JsonObject userObject = (JsonObject) dataObject
+							.get("userInfo");
+					JsonObject equipObject = (JsonObject) dataObject
+							.get("faDetail");
+					JsonObject typeObject = (JsonObject) dataObject
+							.get("typeInfo");
+					JsonObject departObject = (JsonObject) dataObject
+							.get("deptInfo");
+					Assets assets = gson.fromJson(equipObject, Assets.class);
+					User user = gson.fromJson(userObject, User.class);
+					AssetType assetType = gson.fromJson(typeObject,AssetType.class);
+					Department department = gson.fromJson(departObject, Department.class);
 					String tempString = "";
-					tempString+=EquipHelper.equipString(equipment,"p");
-					tempString+=detailString;
+					tempString+= EquipHelper.assetDetailsFromQrcode(assets,user,department,assetType);
+					TextView textView1 = (TextView)findViewById(R.id.textViewDetails);
+					//tempString+=detailString;
 					CharSequence richText = Html.fromHtml(tempString);
 					textView1.setText(richText);
 				}

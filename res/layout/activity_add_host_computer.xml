@@ -1,0 +1,420 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".AddActivity" >
+
+    <TextView
+        android:id="@+id/add_label_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="@color/upanddown"
+        android:gravity="center"
+        android:text="@string/title_activity_add_host_computer"
+        android:textColor="@color/contents_text"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="3dip"
+            android:stretchColumns="1" >
+
+            <TableRow
+                android:id="@+id/tbtpid">
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="设备类型："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/mySpinner"
+                    android:layout_width="0dip"
+                    android:layout_height="50dip" />
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tbid">
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="设备编号："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetNewId"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:phoneNumber="true"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="资产名称："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetName"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="资产归属："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetBelong"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="品牌："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetBrand"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:phoneNumber="true"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="型号："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetModel"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="规格："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetSpecifications"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:minLines="2"
+                    android:gravity="top" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="金额："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetPirce"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:phoneNumber="true"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text="元"
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="服务代码："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetServiceCode"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:phoneNumber="true"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+             <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="MAC地址："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetMac"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+            
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="备注1："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetRemark1"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="right|center_vertical"
+                    android:padding="3dip"
+                    android:text="备注2："
+                    android:textStyle="bold" >
+                </TextView>
+
+                <EditText
+                    android:id="@+id/assetRemark2"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:singleLine="true" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="40dip"
+                    android:layout_height="fill_parent"
+                    android:gravity="left|center_vertical"
+                    android:padding="3dip"
+                    android:text=""
+                    android:textStyle="bold" >
+                </TextView>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@color/upanddown"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:clickable="true"
+            android:drawableLeft="@drawable/detailssel"
+            android:gravity="center"
+            android:onClick="insertClick"
+            android:text="@string/make_sure_insert"
+            android:textColor="@color/contents_text"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:clickable="true"
+            android:drawableLeft="@drawable/searchsel"
+            android:gravity="center"
+            android:onClick="cancelClick"
+            android:text="@string/cancel_insert"
+            android:textColor="@color/contents_text"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

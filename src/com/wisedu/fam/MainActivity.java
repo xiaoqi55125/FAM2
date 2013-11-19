@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.wisedu.fam.add.AddActivity;
+import com.wisedu.fam.add.hostcomputer.AddHostComputer;
 import com.wisedu.fam.check.CheckAsset;
 import com.wisedu.fam.help.MyToast;
 import com.zxing.activity.CaptureActivity;
@@ -36,7 +38,13 @@ public class MainActivity extends Activity {
 	}
 
 	public void zcrkClick(View v) {
-
+		//打开新增页面
+//		Intent openAssetAddIntent = new Intent(this,AddActivity.class);
+//		startActivity(openAssetAddIntent);
+		Intent intent = new Intent(getApplicationContext(),
+				AddHostComputer.class);
+		startActivity(intent);
+		
 	}
 
 	public void zjbfClick(View v) {

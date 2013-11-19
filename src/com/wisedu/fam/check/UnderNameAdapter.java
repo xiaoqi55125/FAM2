@@ -25,8 +25,6 @@ public class UnderNameAdapter extends
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// Activity activity = (Activity) getContext();
-
 		Holder holder;
 		if (convertView == null) {
 			convertView = inflater.inflate(R.layout.asset_one_list,
