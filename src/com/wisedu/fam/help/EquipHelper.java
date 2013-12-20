@@ -58,10 +58,10 @@ public class EquipHelper {
 			temp+="金额:"+assets.getPrice()+"<p>";
 		}
 		if (checkNull(assets.getPurchaseDate())&&!assets.getPurchaseDate().equals("0000-00-00")) {
-			temp+="购置日期:"+assets.getPurchaseDate()+"<p>";
+			temp+="购置日期:"+assets.getPurchaseDate().substring(0, 10)+"<p>";
 		}
 		if (checkNull(assets.getPossessDate())&&!assets.getPossessDate().equals("0000-00-00")) {
-			temp+="领用日期:"+assets.getPossessDate()+"<p>";
+			temp+="领用日期:"+assets.getPossessDate().substring(0, 10)+"<p>";
 		}
 		if (checkNull(assets.getServiceCode())) {
 			temp+="快速服务代码:"+assets.getServiceCode()+"<p>";
@@ -116,11 +116,11 @@ public class EquipHelper {
 					+ ">";
 		}
 		if (EquipHelper.checkNull(equipment.getPurchaseDate())) {
-			tempString += "购买日期:" + dateAnalyser(equipment.getPurchaseDate())
+			tempString += "购买日期:" + dateAnalyser(equipment.getPurchaseDate().substring(0, 10))
 					+ "<" + huan + ">";
 		}
 		if (checkNull(dateAnalyser(equipment.getPossessDate()))) {
-			tempString += "领用日期:" + dateAnalyser(equipment.getPossessDate())
+			tempString += "领用日期:" + dateAnalyser(equipment.getPossessDate().substring(0, 10))
 					+ "<" + huan + ">";
 		}
 		if (equipment.getReject() > 0) {
@@ -128,7 +128,7 @@ public class EquipHelper {
 				tempString += "报废情况:已报废" + "<" + huan + ">";
 				if (equipment.getRejectDate() != null) {
 					tempString += "报销日期:"
-							+ dateAnalyser(equipment.getRejectDate()) + "<"
+							+ dateAnalyser(equipment.getRejectDate().substring(0, 10)) + "<"
 							+ huan + ">";
 				}
 			}
