@@ -4,16 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import java.util.Date;
+import org.w3c.dom.Text;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -54,6 +54,9 @@ public class AddHostComputer extends Activity {
 	private EditText assetRemark1;
 	private EditText assetRemark2;
 	private TextView assetTitle;
+	private TextView clickOk;
+	private TextView clickCancel;
+
 	private Assets ass;
 
 	@Override
@@ -73,8 +76,11 @@ public class AddHostComputer extends Activity {
 		assetRemark1 = (EditText) findViewById(R.id.assetRemark1);
 		assetRemark2 = (EditText) findViewById(R.id.assetRemark2);
 		assetTitle = (TextView) findViewById(R.id.add_label_title);
+		clickOk = (TextView) findViewById(R.id.textViewPhone);
+		clickCancel = (TextView) findViewById(R.id.textViewOther);
 
-		postUrl = this.getString(R.string.homeurl) + "/fixedasset/insertion";
+		postUrl = this.getString(R.string.homeurl)
+				+ "/fixedasset/insertion?api=1";
 		getUrlAt = this.getString(R.string.homeurl) + "/fatypes";
 		getUrlDt = this.getString(R.string.homeurl) + "/departments";
 		new Thread(runnableGet).start();
@@ -102,6 +108,8 @@ public class AddHostComputer extends Activity {
 			assetRemark2.setText(ass.getRemark2());
 			assetType = ass.getTypeId() + "";
 			assetTitle.setText("编辑设备信息");
+			clickOk.setText("确认编辑");
+			clickCancel.setText("取消编辑");
 		}
 
 	}
@@ -121,8 +129,8 @@ public class AddHostComputer extends Activity {
 					LinearLayout ll = (LinearLayout) view;
 					TextView tv = (TextView) ll
 							.findViewWithTag("tagTextViewID");
-					myToast.showToast(getApplicationContext(),
-							(String) tv.getText());
+					// myToast.showToast(getApplicationContext(),
+					// (String) tv.getText());
 					assetType = (String) tv.getText();
 				}
 			}
@@ -144,7 +152,6 @@ public class AddHostComputer extends Activity {
 		} else {
 			myToast.showToast(getApplicationContext(), "资产编号不能留空!");
 		}
-
 	}
 
 	/**
@@ -153,7 +160,7 @@ public class AddHostComputer extends Activity {
 	 * @param v
 	 */
 	public void cancelClick(View v) {
-		myToast.showToast(getApplicationContext(), assetType);
+		this.finish();
 	}
 
 	Handler handlerInsert = new Handler() {
@@ -164,17 +171,17 @@ public class AddHostComputer extends Activity {
 			String val = data.getString("value");
 			switch (Integer.parseInt(val)) {
 			case 200:
-				if (null != ass ) {
+				if (null != ass) {
 					myToast.showToast(getApplicationContext(), "编辑成功!");
-				}else{
+				} else {
 					myToast.showToast(getApplicationContext(), "入库成功!");
 				}
 				break;
 
 			default:
-				if (null != ass ) {
+				if (null != ass) {
 					myToast.showToast(getApplicationContext(), "编辑失败!");
-				}else{
+				} else {
 					myToast.showToast(getApplicationContext(), "入库失败!");
 				}
 				break;
@@ -198,63 +205,67 @@ public class AddHostComputer extends Activity {
 				nameValuePairs.add(new BasicNameValuePair("newId", assetNewId
 						.getText().toString()));
 			}
-			if (EquipHelper.checkNull(assetName.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("assetName",
-						assetName.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetBelong.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("assetBelong",
-						assetBelong.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetBrand.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("brand", assetBrand
-						.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetModel.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("model", assetModel
-						.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetSpecifications.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("specifications",
-						assetSpecifications.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetPrice.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("price", assetPrice
-						.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetServiceCode.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("serviceCode",
-						assetServiceCode.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetMac.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("mac", assetMac
-						.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetRemark1.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("remark1",
-						assetRemark1.getText().toString()));
-			}
-			if (EquipHelper.checkNull(assetRemark2.getText().toString())) {
-				nameValuePairs.add(new BasicNameValuePair("remark2",
-						assetRemark2.getText().toString()));
-			}
-			//无需修改项
+			nameValuePairs.add(new BasicNameValuePair("assetName", assetName
+					.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("assetBelong",
+					assetBelong.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("brand", assetBrand
+					.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("model", assetModel
+					.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("specifications",
+					assetSpecifications.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("price", assetPrice
+					.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("serviceCode",
+					assetServiceCode.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("mac", assetMac.getText()
+					.toString()));
+			nameValuePairs.add(new BasicNameValuePair("remark1", assetRemark1
+					.getText().toString()));
+			nameValuePairs.add(new BasicNameValuePair("remark2", assetRemark2
+					.getText().toString()));
+			// 无需修改项
 			if (null != ass) {
-				nameValuePairs.add(new BasicNameValuePair("purchaseDate", ass.getPurchaseDate()));
-				nameValuePairs.add(new BasicNameValuePair("oldId", ass.getOldId()));
-				nameValuePairs.add(new BasicNameValuePair("userId", ass.getUserId()));
-				nameValuePairs.add(new BasicNameValuePair("departmentId", ass.getDepartmentId()));
-				nameValuePairs.add(new BasicNameValuePair("currentStatus", ass.getCurrentStatus()));
-				nameValuePairs.add(new BasicNameValuePair("possessDate",ass.getPossessDate()));
-			}else{
+				nameValuePairs.add(new BasicNameValuePair("purchaseDate", ass
+						.getPurchaseDate()));
+				nameValuePairs.add(new BasicNameValuePair("oldId", ass
+						.getOldId()));
+				nameValuePairs.add(new BasicNameValuePair("userId", ass
+						.getUserId()));
+				nameValuePairs.add(new BasicNameValuePair("departmentId", ass
+						.getDepartmentId()));
+				nameValuePairs.add(new BasicNameValuePair("currentStatus", ass
+						.getCurrentStatus())); 
+				nameValuePairs.add(new BasicNameValuePair("possessDate", ass
+						.getPossessDate()));
+				nameValuePairs.add(new BasicNameValuePair("qrcode", ass
+						.getQrcode()));
+				nameValuePairs.add(new BasicNameValuePair("companyId", ass
+						.getCompanyId() + ""));
+				nameValuePairs.add(new BasicNameValuePair("reject", ass
+						.getReject() + ""));
+				nameValuePairs.add(new BasicNameValuePair("rejectDate", ass
+						.getRejectDate()));
+			} else {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				String startTime = sdf.format(new Date());
-				nameValuePairs.add(new BasicNameValuePair("purchaseDate",startTime));
+				nameValuePairs.add(new BasicNameValuePair("purchaseDate",
+						startTime));
+				nameValuePairs.add(new BasicNameValuePair("oldId", ""));
+				nameValuePairs.add(new BasicNameValuePair("userId", ""));
+				nameValuePairs.add(new BasicNameValuePair("departmentId", "38"));
+				nameValuePairs.add(new BasicNameValuePair("currentStatus", ""));
+				nameValuePairs.add(new BasicNameValuePair("possessDate", null));
+				nameValuePairs.add(new BasicNameValuePair("qrcode", ""));
+				nameValuePairs.add(new BasicNameValuePair("companyId", ""));
+				nameValuePairs.add(new BasicNameValuePair("reject", ""));
+				nameValuePairs.add(new BasicNameValuePair("rejectDate", null));
 			}
-
 			HttpResponse response = null;
 			try {
 				response = httpUtil.sendObgect(postUrl, nameValuePairs);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -286,7 +297,7 @@ public class AddHostComputer extends Activity {
 					int key = Integer.parseInt(type.get("typeId").toString());
 					assetTypeId[i] = key;
 				}
-			}else{
+			} else {
 				myToast.showToast(getApplicationContext(), "服务器异常");
 			}
 			initMySpinner();
@@ -305,12 +316,5 @@ public class AddHostComputer extends Activity {
 			handlerGet.sendMessage(msg);
 		}
 	};
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_host_computer, menu);
-		return true;
-	}
 
 }

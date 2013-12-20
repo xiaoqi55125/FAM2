@@ -54,16 +54,13 @@ public class EquipHelper {
 		if (checkNull(assets.getSpecifications())) {
 			temp+="规格:"+assets.getSpecifications()+"<p>";
 		}
-		if (checkNull(assets.getAmount()+"")) {
-			temp+="数量:"+assets.getAmount()+"<p>";
-		}
 		if (checkNull(assets.getPrice()+"")) {
 			temp+="金额:"+assets.getPrice()+"<p>";
 		}
-		if (checkNull(assets.getPurchaseDate())) {
+		if (checkNull(assets.getPurchaseDate())&&!assets.getPurchaseDate().equals("0000-00-00")) {
 			temp+="购置日期:"+assets.getPurchaseDate()+"<p>";
 		}
-		if (checkNull(assets.getPossessDate())) {
+		if (checkNull(assets.getPossessDate())&&!assets.getPossessDate().equals("0000-00-00")) {
 			temp+="领用日期:"+assets.getPossessDate()+"<p>";
 		}
 		if (checkNull(assets.getServiceCode())) {

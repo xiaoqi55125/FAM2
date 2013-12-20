@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="homeurl">http://192.172.1.32:8088</string>
+    <string name="homeurl">http://192.172.1.27:8088</string>
     <string name="app_name">资产管理</string>
     <string name="cd">Content Description</string>
     <string name="action_settings">退出</string>

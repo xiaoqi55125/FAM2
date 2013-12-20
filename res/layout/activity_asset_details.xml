@@ -40,7 +40,8 @@
         android:layout_height="50dip"
         android:background="@color/upanddown"
         android:orientation="horizontal"
-        android:gravity="center" >
+        android:gravity="center"
+        android:visibility="gone" >
          <TextView
             android:id="@+id/textViewPhone"
             android:layout_width="wrap_content"

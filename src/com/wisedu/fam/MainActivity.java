@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void zcglClick(View v) {
-		myToast.showToast(this, "456");
+		myToast.showToast(this, "功能暂未开放");
 	}
 
 	/**

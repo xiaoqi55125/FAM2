@@ -36,6 +36,7 @@ import com.wisedu.fam.model.Assets;
 import com.wisedu.fam.model.Department;
 import com.wisedu.fam.model.User;
 
+
 /**
  * 根据二维码信息查找
  * 
@@ -194,7 +195,6 @@ public class CheckAsset extends Activity {
 			msg.setData(data);
 			handlerAllocAsset.sendMessage(msg);
 			// action completed , return the search underName Button
-
 		}
 	};
 

@@ -77,10 +77,5 @@ public class AddActivity extends Activity {
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.add, menu);
-		return true;
-	}
 
 }
