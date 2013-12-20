@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void zjbfClick(View v) {
-		myToast.showToast(this, "345");
+		myToast.showToast(this, "功能暂未开放");
 	}
 
 	public void zcglClick(View v) {
